@@ -1,26 +1,33 @@
-INSERT INTO department (name)
-VALUES ('Engineering'),
-       ('Finance'),
-       ('Legal'),
-       ('Sales');
+USE employees;
 
-INSERT INTO role (title, salary, department_id)
-VALUES ('Lead Engineer', 130000, 1),
-       ('Software Engineer', 65000, 1),
-       ('Account Manager', 175000, 2),
-       ('Accountant', 110000, 2),
-       ('Legal Team Lead', 230000, 3),
-       ('Lawyer', 180000, 3),
-       ('Sales Lead', 100000, 4),
-       ('Salesperson', 60000, 4);
+INSERT INTO department
+    (name)
+VALUES
+    ('Human Resources'),
+    ('Marketing'),
+    ('Information Technology'),
+    ('Accounting');
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ('Melanie', 'Martinez', 1, NULL),
-       ('Claire', 'Boucher', 2, 1),
-       ('Elizabeth', 'Grant', 3, NULL),
-       ('River', 'Lee', 4, 3),
-       ('Kennedy', 'Monroe', 5, 3),
-       ('Remi', 'Wolfe', 6, NULL),
-       ('Everett', 'Moore', 7, 5),
-       ('Marina', 'Diamandis', 8, 5),
-       
+INSERT INTO role
+    (title, salary, department_id)
+VALUES
+    ('HR Manager', 100000, 1),
+    ('HR', 50000, 1),
+    ('Marketing Director', 140000, 2),
+    ('Sales', 65000, 2),
+    ('IT Director', 195000, 3),
+    ('Desktop Support', 100000, 3),
+    ('Account Manager', 110000, 4),
+    ('Accountant', 90000, 4);
+
+INSERT INTO employee
+    (first_name, last_name, role_id, manager_id)
+VALUES
+    ('Melanie', 'Martinez', 1, NULL),
+    ('Claire', 'Boucher', 2, 1),
+    ('Elizabeth', 'Grant', 3, NULL),
+    ('Everett', 'Moore', 4, 3),
+    ('River', 'Lee', 5, 3),
+    ('Marina', 'Diamandis', 6, NULL),
+    ('Kennedy', 'Monroe', 7, 5),
+    ('Remi', 'Wolfe', 8, 5)
