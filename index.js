@@ -10,10 +10,10 @@ function init() {
     runPrompts();
 }
 
+// display the following prompts upon starting app
 function runPrompts() {
     prompt([
         {
-            // Load these prompts on NPM start
             type: "list",
             name: "choice",
             message: "What would you like to do?",
@@ -32,11 +32,11 @@ function runPrompts() {
                 },
 
                 {
-                    name: "Add a Department",
+                    name: "Add Department",
                     value: "ADD_DEPARTMENT"
                 },
                 {
-                    name: "Add a Role",
+                    name: "Add Role",
                     value: "ADD_ROLE"
                 },
                 {
@@ -56,7 +56,7 @@ function runPrompts() {
 
     ]).then(res => {
         let choice = res.choice;
-        // Call the functions from what the user selects
+        // call respective function to user's choice
         switch (choice) {
             case "VIEW_DEPARTMENTS":
                 viewAllDepartments();
@@ -87,7 +87,7 @@ function runPrompts() {
 }
 
 
-// View all employees
+// view employees
 function viewAllEmployees() {
     db.allEmployees()
         .then(([rows]) => {
@@ -98,7 +98,7 @@ function viewAllEmployees() {
         .then(() => runPrompts());
 }
 
-// View all roles
+// view roles
 function viewAllRoles() {
     db.allRoles()
         .then(([rows]) => {
@@ -109,7 +109,7 @@ function viewAllRoles() {
         .then(() => runPrompts());
 }
 
-// View all deparments
+// view deparments
 function viewAllDepartments() {
     db.allDepartments()
         .then(([rows]) => {
@@ -120,7 +120,7 @@ function viewAllDepartments() {
         .then(() => runPrompts());
 }
 
-// Add a role
+// create new role
 function createRole() {
     db.allDepartments()
         .then(([rows]) => {
@@ -137,12 +137,12 @@ function createRole() {
                 },
                 {
                     name: "salary",
-                    message: "What is the salary rate?"
+                    message: "What is the salary of the role?"
                 },
                 {
                     type: "list",
                     name: "department_id",
-                    message: "Which department does the role fall in under?",
+                    message: "Which department does the role belong under?",
                     choices: departmentChoices
                 }
             ])
@@ -155,7 +155,7 @@ function createRole() {
 }
 
 
-// Add a department
+// create department
 function createDepartment() {
     prompt([
         {
@@ -171,16 +171,16 @@ function createDepartment() {
         })
 }
 
-// Add an employee
+// new employee
 function createEmployee() {
     prompt([
         {
             name: "first_name",
-            message: "What's the employee's first name?"
+            message: "What is the new employee's first name?"
         },
         {
             name: "last_name",
-            message: "What's the employee's last name?"
+            message: "What is the new employee's last name?"
         }
     ])
         .then(res => {
@@ -198,7 +198,7 @@ function createEmployee() {
                     prompt({
                         type: "list",
                         name: "roleId",
-                        message: "What's the employee's role?",
+                        message: "What is the new employee's role?",
                         choices: roleChoices
                     })
                         .then(res => {
@@ -217,7 +217,7 @@ function createEmployee() {
                                     prompt({
                                         type: "list",
                                         name: "managerId",
-                                        message: "Who's the employee's manager?",
+                                        message: "Who is the new employee's manager? (if applicable)",
                                         choices: managerChoices
                                     })
                                         .then(res => {
@@ -242,7 +242,7 @@ function createEmployee() {
 
 
 
-// Update an employee's role
+// update employee role
 function updateEmployeeRole() {
     db.allEmployees()
         .then(([rows]) => {
@@ -274,18 +274,18 @@ function updateEmployeeRole() {
                                 {
                                     type: "list",
                                     name: "roleId",
-                                    message: "What's the new role of this employee?",
+                                    message: "What is the employee's new role?",
                                     choices: roleChoices
                                 }
                             ])
                                 .then(res => db.updateEmployeeRole(employeeId, res.roleId))
-                                .then(() => console.log("Employee's role is updated"))
+                                .then(() => console.log("Updated employee's role"))
                                 .then(() => runPrompts())
                         });
                 });
         })
 }
-// Quit the application
+// quit app
 function quit() {
     process.exit();
 }
