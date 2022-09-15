@@ -86,7 +86,6 @@ function runPrompts() {
     )
 }
 
-
 // view employees
 function viewAllEmployees() {
     db.allEmployees()
@@ -153,7 +152,6 @@ function createRole() {
                 })
         })
 }
-
 
 // create department
 function createDepartment() {
@@ -240,8 +238,6 @@ function createEmployee() {
         })
 }
 
-
-
 // update employee role
 function updateEmployeeRole() {
     db.allEmployees()
@@ -285,6 +281,7 @@ function updateEmployeeRole() {
                 });
         })
 }
+
 // quit app
 function quit() {
     process.exit();
