@@ -2,7 +2,6 @@
 
 ## *description*
 
-\
 *User Story*
 ```
 AS A business owner
@@ -10,7 +9,6 @@ I WANT to be able to view and manage the departments, roles, and employees in my
 SO THAT I can organize and plan my business
 ```
 
-\
 *Acceptance Criteria*
 ```
 GIVEN a command-line application that accepts user input
@@ -42,5 +40,5 @@ Updated employee list:
 ## *links*
 <a href="https://drive.google.com/file/d/1DaJU2Pfu503wzUWGqVhMgc2h-UztV4wl/view" target="_blank">Walkthrough Video</a>
 
-## *notes*
+## * additional notes*
 The updated employee list was accidentally not shown in the walkthrough video, however can be seen in the screenshots.
